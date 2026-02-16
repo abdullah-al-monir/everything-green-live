@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Everything Green (https://everything-green-live.vercel.app)
+A modern, eco-friendly web application built with Next.js 16, React 19, and TypeScript. This frontend provides a beautiful user interface for tracking and managing sustainable web practices with real-time keyword attribution metrics.
 
-## Getting Started
+## 🚀 Features
 
-First, run the development server:
+* Modern Stack: Built with Next.js 16 (App Router) and React 19
+* Type-Safe: Full TypeScript support for better developer experience
+* Responsive Design: Mobile-first design with Tailwind CSS 4
+* Smooth Animations: Framer Motion for delightful user interactions
+* State Management: Zustand for lightweight and efficient state management
+* Authentication: Secure JWT-based authentication with HTTP-only cookies
+* Profile Management: Complete user profile system with avatar support
+* SEO Optimized: Built-in Next.js SEO features
 
-```bash
-npm run dev
+## 📋 Prerequisites
+Before you begin, ensure you have the following installed:
+
+* Node.js (v18 or higher)
+* npm or yarn or pnpm
+* Everything Green Backend (running on http://localhost:5000 or deployed)
+
+## 🛠️ Installation
+1. Clone the repository
+bashgit clone <repository-url>
+cd everything-green
+2. Install dependencies
+```bash 
+npm install
 # or
-yarn dev
+yarn install
 # or
-pnpm dev
-# or
-bun dev
+pnpm install
+```
+3. Set up environment variables
+* Create a .env.local file in the root directory:
+```bash 
+touch .env.local
+```
+* Add the following environment variables:
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏃 Running the Application
+Development Mode
+* Start the development server with hot-reload:
+```bash
+npm run dev
+```
+The application will be available at http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
+```
+everything-green/
+├── app/                      # Next.js App Router
+│   ├── (profile)/           # Profile route group
+│   │   └── profile/
+│   │       ├── page.tsx     # Profile page
+│   │       └── layout.tsx   # Profile layout
+│   ├── about/               # About page
+│   │   └── page.tsx
+│   ├── blog/                # Blog page
+│   │   └── page.tsx
+│   ├── contact/             # Contact page
+│   │   └── page.tsx
+│   ├── login/               # Login page
+│   │   └── page.tsx
+│   ├── register/            # Register page
+│   │   └── page.tsx
+│   ├── favicon.ico          # App favicon
+│   ├── globals.css          # Global styles
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Home page
+├── components/              # Reusable components
+│   ├── AttributionMatch.tsx # Keyword attribution widget
+│   ├── DeleteModal.tsx      # Delete confirmation modal
+│   ├── Footer.tsx           # Footer component
+│   ├── Header.tsx           # Header/Navigation
+│   └── MeterGauge.tsx       # Animated gauge component
+├── lib/                     # Utility libraries
+│   └── api.ts               # API client (Axios)
+├── store/                   # State management
+│   └── auth.ts              # Zustand auth Store
+├── types/                   # TypeScript type definitions
+│   └── index.ts             # Global types
+├── public/                  # Static assets
+│   ├── auth-bg.png          # Authentication background
+│   └── auth-banner.png      # Authentication banner
+├── .env.local               # Environment variables (create this)
+├── .env.example             # Environment variables template
+├── .eslintrc.json           # ESLint configuration
+├── .gitignore               # Git ignore rules
+├── next.config.ts           # Next.js configuration
+├── package.json             # Dependencies and scripts
+├── tailwind.config.ts       # Tailwind CSS configuration
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # This file
+```
+## 🎨 Key Pages & Features
+### Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Login (/login) - User login with email/password or Google sign-in
+* Register (/register) - New user registration
 
-## Learn More
+* User Profile
 
-To learn more about Next.js, take a look at the following resources:
+* Profile (/profile) - View and edit user profile
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Update username, full name, bio
+* Upload avatar via URL
+* Delete account functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Public Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Home (/) - Landing page with hero section
+* About (/about) - About the project
+* Blog (/blog) - Blog posts (coming soon)
+* Contact (/contact) - Contact form
+
+## 🔌 Test Credentials
+* email: test@gmail.com
+* password: Test1234
