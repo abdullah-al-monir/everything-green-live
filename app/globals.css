@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-black: #000000;
+  --color-gray-dark: #595959;
+  --color-gray-darker: #171717;
+  --color-white: #fefefe;
+  --color-green-primary: #1c9876;
+  --color-green-secondary: #5cd6ba;
+  --color-green-tertiary: #1b9876;
+  --color-green-light: #deedea;
+  --color-gray-light: #f0f2f1;
+  --color-orange: #fbb57b;
+
+  --gradient-light: linear-gradient(135deg, #e6eeec 0%, #ffffff 100%);
+  --gradient-green: linear-gradient(135deg, #5cd6ba 0%, #dfd1ba 100%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans transition-colors duration-300;
+    font-family:
+      "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  a {
+    @apply text-green-primary hover:text-green-secondary transition-colors duration-200;
+    text-decoration: none;
+  }
+
+  button {
+    @apply transition-all duration-200 cursor-pointer;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply transition-colors duration-200;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-green-primary text-white hover:text-black font-semibold rounded-full  hover:bg-green-secondary transition-colors duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-light text-black font-semibold rounded-full hover:bg-gray-200 transition-colors duration-200;
+  }
+
+  .btn-tertiary {
+    @apply px-6 py-3 bg-transparent border-2 border-green-primary text-black font-semibold rounded-full hover:bg-green-primary hover:text-white transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-gray-light rounded-full focus:outline-none focus:border-green-primary transition-colors duration-200;
+  }
+
+  .card-shadow {
+    @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .gradient-text {
+    background: var(--gradient-green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #5cd6ba 0%, #1c9876 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .gradient-light-bg {
+    background: linear-gradient(135deg, #e6eeec 0%, #ffffff 100%);
+  }
+
+  .gradient-green-bg {
+    background: linear-gradient(135deg, #5cd6ba 0%, #dfd1ba 100%);
+  }
+
+  .smooth-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
